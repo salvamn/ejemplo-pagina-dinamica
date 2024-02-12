@@ -1,0 +1,68 @@
+{% extends 'baseAutenticacion.dj' %}
+{% load static %}
+
+{% block titulo %}Inicio de Sesión{% endblock %}
+
+
+{% comment %} Linsk y scripts {% endcomment %}
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/autenticacion.css' %}">
+
+
+{% endblock %}
+{% comment %} Linsk y scripts {% endcomment %}
+
+
+
+
+
+{% block aplicacion %}
+
+
+
+<div id="app">
+
+    <div class="logo">
+        <img src="{% static 'img/logo-red-social.png' %}" alt="">
+    </div>
+
+    <form>
+        {% csrf_token %}
+        <div class="titulo">
+            <h3>Inicio de Sesión</h3>
+        </div>
+
+        <div class="campo">
+            <label for="nombre-usuario">Nombre de usuario</label>
+            <input v-model="nombreUsuario" type="text" name="nombre-usuario">
+        </div>
+
+        <div class="campo">
+            <label for="contrasenia">Contraseña</label>
+            <input v-model="contrasenia" type="password" name="contrasenia" id="">
+        </div>
+
+        <div class="campo">
+            <button @click="verificarDatosLogin">iniciar sesión</button>
+        </div>
+
+        <div class="campo">
+            <a href="{% url 'registro' %}">crear una cuenta</a>
+            <a href="#">¿se te olvido la contraseña?</a>
+        </div>
+
+    </form>
+
+
+
+
+
+</div>
+
+
+<script src="{% static 'js/login.js' %}"></script>
+{% endblock aplicacion %}
+
+
+
+

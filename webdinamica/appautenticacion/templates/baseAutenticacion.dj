@@ -1,0 +1,42 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      RED{% block titulo %}
+
+      {% endblock %}
+    </title>
+
+    <link rel="stylesheet" href="{% static 'css/baseAutenticacion.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/notyf.min.css' %}" />
+
+    {% comment %} <script src="{% static 'js/tailwindcss.js' %}"></script> {% endcomment %}
+    <script src="{% static 'js/axios.min.js' %}"></script>
+    <script src="{% static 'js/notyf.min.js' %}"></script>
+    <script src="{% static 'js/sweetalert.js' %}"></script>
+    <script src="{% static 'js/vue.global.js' %}"></script>
+
+    {% block head %}
+
+    {% endblock %}
+  </head>
+  <body>
+    <main>
+      {% comment %} <nav>
+        <div class="navegacion">
+          <div class="logo">
+            <img src="{% static 'img/logo-red-social-solo.png' %}" alt="" />
+          </div>
+        </div>
+      </nav> {% endcomment %}
+
+      {% block aplicacion %}
+
+      {% endblock %}
+    </main>
+  </body>
+</html>

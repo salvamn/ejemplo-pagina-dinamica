@@ -1,0 +1,165 @@
+{% extends 'baseMain.dj' %}
+{% load static %}
+{% load humanize %}
+
+{% block titulo %}
+  Inicio
+{% endblock %}
+
+{% block head %}
+  <link rel="stylesheet" href="{% static 'css/inicio.css' %}" />
+{% endblock %}
+
+{% block body %}
+  <div id="app">
+    <div id="contenedor-main">
+      <div class="navegacion-lateral">
+        <aside>
+          <a href="#">
+            <img src="{% static 'img/home.png' %}" alt="" />
+            inicio
+          </a>
+          <a href="{% url 'post' %}">
+            <img src="{% static 'img/nuevo-post.png' %}" alt="" />
+            crear post
+          </a>
+          <a href="#">
+            <img src="{% static 'img/categoria.png' %}" alt="" />
+            categorias
+          </a>
+          <a href="#">
+            <img src="{% static 'img/usuarios.png' %}" alt="" />
+            creadores de post
+          </a>
+          <a href="#">
+            <img src="{% static 'img/chats.png' %}" alt="" />
+            salas de conversación
+          </a>
+          {% comment %} <a href="#">5</a> {% endcomment %}
+        </aside>
+        <aside>
+          <a href="#">
+            <img src="{% static 'img/mis-post.png' %}" alt="" />
+            mis posts
+          </a>
+          <a href="#">
+            <img src="{% static 'img/usuarios.png' %}" alt="" />
+            mis amigos
+          </a>
+          <a href="#">
+            <img src="{% static 'img/mis-chats.png' %}" alt="" />
+            mis chats
+          </a>
+          <a href="#">
+            <img src="{% static 'img/mis-notas.png' %}" alt="" />
+            mis notas
+          </a>
+        </aside>
+      </div>
+
+      <div class="contenedor-central">
+        <section>
+          <div class="contenedor-posts">
+            <div class="titulo">
+              <h1>Vista previa de posts</h1>
+            </div>
+            {% for post in posts %}
+              <div class="post" id="">
+                <div class="imagen">
+                  {% if post.imagen.name != '' %}
+                    <img src="{{ post.imagen.url }}" alt="" />
+                  {% else %}
+                    <img src="{% static 'img/imagen-falsa-3.svg' %}" alt="" />
+                  {% endif %}
+                </div>
+                <div class="informacion">
+                  <div class="titulo">
+                    <h4>{{ post.titulo }}</h4>
+                  </div>
+                  <div class="descripcion">
+                    <p>{{ post.contenido|safe }}</p>
+                    {% comment %} <p>{{ post.contenido }}</p> {% endcomment %}
+                  </div>
+                  <div class="etiquetas">
+                    <span>tech</span>
+                    <span>python</span>
+                    <span>django</span>
+                  </div>
+                  <div class="opciones">
+                    <img src="{% static 'img/like.png' %}" alt="" />
+                    <img src="{% static 'img/comentarios.png' %}" alt="" />
+                    <a href="{% url 'vista_previa_post' post.id %}">ver post</a>
+                    {% if request.user.id == post.autor_id %}
+                      <a href="{% url 'eliminar_post' post.id %}" class="eliminar-post">eliminar</a>
+                    {% else %}
+
+                    {% endif %}
+                  </div>
+                  <div class="info2">
+                    <span>by - {{ post.autor.username }}</span>
+                    <span>{{ post.fecha_publicacion|naturaltime }}</span>
+                  </div>
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+        </section>
+      </div>
+
+      <div class="contenedor-lateral-derecho">
+        <div class="usuarios-conectados">
+          <a href="#">
+            {% comment %}#747474{% endcomment %}
+            <img src="{% static 'img/usuario.png' %}" alt="" />
+            usuario
+            <img src="{% static 'img/conectado.png' %}" class="conectado" alt="" />
+          </a>
+          <a href="#">
+            {% comment %}#747474{% endcomment %}
+            <img src="{% static 'img/usuario.png' %}" alt="" />
+            usuario
+            <img src="{% static 'img/conectado.png' %}" class="conectado" alt="" />
+          </a>
+          <a href="#">
+            {% comment %}#747474{% endcomment %}
+            <img src="{% static 'img/usuario.png' %}" alt="" />
+            usuario
+            <img src="{% static 'img/conectado.png' %}" class="conectado" alt="" />
+          </a>
+          <a href="#">
+            {% comment %}#747474{% endcomment %}
+            <img src="{% static 'img/usuario.png' %}" alt="" />
+            usuario
+            <img src="{% static 'img/conectado.png' %}" class="conectado" alt="" />
+          </a>
+          <a href="#">
+            {% comment %}#747474{% endcomment %}
+            <img src="{% static 'img/usuario.png' %}" alt="" />
+            usuario
+            <img src="{% static 'img/conectado.png' %}" class="conectado" alt="" />
+          </a>
+          <a href="#">
+            {% comment %}#747474{% endcomment %}
+            <img src="{% static 'img/usuario.png' %}" alt="" />
+            usuario
+            <img src="{% static 'img/conectado.png' %}" class="conectado" alt="" />
+          </a>
+          <a href="#">
+            {% comment %}#747474{% endcomment %}
+            <img src="{% static 'img/usuario.png' %}" alt="" />
+            usuario
+            <img src="{% static 'img/conectado.png' %}" class="conectado" alt="" />
+          </a>
+          <a href="#">
+            {% comment %}#747474{% endcomment %}
+            <img src="{% static 'img/usuario.png' %}" alt="" />
+            usuario
+            <img src="{% static 'img/conectado.png' %}" class="conectado" alt="" />
+          </a>
+        </div>
+
+        <div class="usuarios-desconectados"></div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

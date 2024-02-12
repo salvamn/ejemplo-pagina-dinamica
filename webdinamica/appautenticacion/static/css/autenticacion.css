@@ -1,0 +1,90 @@
+#app{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+#app .logo{
+    width: 30%;
+    height: 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#app .logo img{
+    height: 70%;
+}
+
+#app form{
+    width: 20%;
+    height: auto;
+    border: 2px solid #91CC12;
+    /* box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px, rgb(209, 213, 219) 0px 0px 0px 1px inset; */
+    /* box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px; */
+    /* box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px; */
+    /* box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset; */
+    box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px, rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;
+    border-radius: 7px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.titulo{
+    width: 80%;
+    height: auto;
+    text-align: center;
+    color: rgb(74, 74, 74);
+    margin-bottom: 20px;
+}
+
+.campo{
+    width: 80%;
+    margin-top: 10px;
+    /* margin-bottom:2px; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.campo label{
+    color: rgb(74, 74, 74);
+    font-weight: bold;
+}
+
+.campo input{
+    padding: 5px;
+    border-radius: 7px;
+    /* box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px; */
+    border: 1px solid #33333348;
+    outline: none;
+}
+
+.campo button{
+    padding: 7px;
+    border-radius: 7px;
+    border: 1px solid #33333348;
+    outline: none;
+    color: white;
+    background-color: #EA452E;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.campo button:active{
+    transform: scale(0.989);
+    background-color: #ca3b28;
+}
+
+.campo a{
+    text-decoration: none;
+    text-align: center;
+    color: #007fbf;
+}

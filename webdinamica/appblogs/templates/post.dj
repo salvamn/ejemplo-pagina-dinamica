@@ -1,0 +1,54 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>crear post</title>
+
+    <link rel="stylesheet" href="{% static 'css/post.css' %}">
+    
+    <script src="{% static 'js/tailwindcss.js' %}"></script>
+    <script src="{% static 'js/axios.min.js' %}"></script>
+    <script type="text/javascript" src="{% static "ckeditor/ckeditor-init.js" %}"></script>
+    <script type="text/javascript" src="{% static "ckeditor/ckeditor/ckeditor.js" %}"></script>
+
+</head>
+<body>
+
+
+    <nav>
+    <div class="navegacion">
+        <div class="logo">
+        <img src="{% static 'img/logo-red-social-solo.png' %}">
+        </div>
+        <div class="buscador">
+        <input type="search" name="" placeholder="buscar un post" id="">
+        </div>
+        <div class="opciones">
+        <a href="{% url 'inicio' %}">inicio</a>
+        <a href="#">perfil</a>
+        <a href="{% url 'cerrar_sesion' %}">cerrar sesión</a>
+        </div>
+    </div>
+    </nav>
+
+
+    <form action="{% url 'post' %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        <p>
+            <span class="info">* Se recomienda hacer uso de la opción maximizar.</span>
+        </p>
+
+        {{ formulario.as_p }}
+
+        <button type="submit">crear post</button>
+
+    </form>
+
+    
+
+
+</body>
+</html>

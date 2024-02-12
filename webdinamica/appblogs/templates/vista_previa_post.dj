@@ -1,0 +1,105 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <link rel="stylesheet" href="{% static 'css/vista_previa_post.css' %}" />
+    {% comment %} <link rel="stylesheet" href="{% static 'css/sweetalert2.min.css' %}" /> {% endcomment %}
+    {% comment %} <link rel="stylesheet" href="{% static 'ckeditor/ckeditor/plugins/codesnippet/lib/highlight/styles/default.css' %}" /> {% endcomment %}
+    <link rel="stylesheet" href="{% static 'ckeditor/ckeditor/plugins/codesnippet/lib/highlight/styles/tomorrow-night.css' %}" />
+    
+    {% comment %} <link rel="stylesheet" href="{% static 'js/notiflix-Notiflix-78ca6fa/src/notiflix.css' %}"> {% endcomment %}
+
+    <script src="{% static 'js/notiflix-Notiflix-78ca6fa/dist/notiflix-confirm-aio-3.2.7.min.js' %}"></script>
+
+
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+
+
+
+    <script src="{% static 'js/tailwindcss.js' %}"></script>
+    <script src="{% static 'js/axios.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'ckeditor/ckeditor-init.js' %}"></script>
+    <script type="text/javascript" src="{% static 'ckeditor/ckeditor/ckeditor.js' %}"></script>
+    <script src="{% static 'ckeditor/ckeditor/plugins/codesnippet/lib/highlight/highlight.pack.js' %}"></script>
+    {% comment %} <script src="{% static 'js/sweetalert2.all.min.js' %}"></script> {% endcomment %}
+    <script src="{% static 'js/vue.global.js' %}"></script>
+  </head>
+  <body>
+    <div id="app">
+
+      <nav class="w-full h-[8%]">
+        <div class="navegacion">
+          <div class="logo">
+            <img src="{% static 'img/logo-red-social-solo.png' %}" />
+          </div>
+          <div class="buscador">
+            <input type="search" name="" placeholder="buscar un post" id="" />
+          </div>
+          <div class="opciones">
+            <a href="{% url 'inicio' %}">inicio</a>
+            <a href="#">perfil</a>
+            <a href="{% url 'cerrar_sesion' %}">cerrar sesión</a>
+          </div>
+        </div>
+      </nav>
+  
+      <div id="contenedor-post">
+        {% if request.user.username == post.autor.username %}
+          <div class="w-3/5 h-[70px] p-[10px] mb-[50px] flex flex-col justify-end items-end border border-b-[#33333321] shadow-[0px_1px_0px_rgba(17, 17, 26, 0.1)] rounded-b-[5px]">
+            <div class="mb-[10px]">
+              <span class="text-[#747474]">información del post</span>
+            </div>
+  
+            <div class="flex flex-row">
+              <img @click="" src="{% static 'img/editar.png' %}" class="activar-img w-[20px] h-[20px] ml-[5px] cursor-pointer" alt="" />
+              {% comment %} <img @click="opcionEliminarPost" src="{% static 'img/borrar.png' %}" class="activar-img w-[20px] h-[20px] ml-[5px] cursor-pointer" alt="" /> {% endcomment %}
+              <img @click="opcionEliminarPost" id="{{ post.id }}" src="{% static 'img/borrar.png' %}" class="activar-img w-[20px] h-[20px] ml-[5px] cursor-pointer" alt="" />
+            </div>
+          </div>
+        {% endif %}
+  
+        {% if post.imagen.name != '' %}
+          <div class="imagen-post">
+            <img src="{{ post.imagen.url }}" alt="" />
+          </div>
+        {% else %}
+  
+        {% endif %}
+  
+        {% comment %}
+        <div class="contenedor-usuario">
+          <div class="tarjeta-usuario">
+            <div class="usuario">
+              <div class="imagen-perfil">
+                <img src="{% static 'img/imagen-perfil.png' %}" alt="" />
+              </div>
+  
+              <div class="datos-personales">
+                <h1>{{ post.autor.username }}</h1>
+              </div>
+            </div>
+          </div>
+        </div> {% endcomment %}
+  
+        <div class="titulo">
+          <h1>{{ post.titulo }}</h1>
+        </div>
+  
+        <div class="contenido-post">{{ post.contenido|safe }}</div>
+      </div>
+    </body>
+  
+    <script>
+      hljs.initHighlightingOnLoad()
+    </script>
+  
+    <script src="{% static 'js/vista_previa_post.js' %}"></script>
+    </div>
+</html>

@@ -1,0 +1,78 @@
+{% extends 'baseAutenticacion.dj' %}
+{% load static %}
+
+{% block titulo %}Registro{% endblock %}
+
+
+{% comment %} Linsk y scripts {% endcomment %}
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/autenticacion.css' %}">
+
+
+{% endblock %}
+{% comment %} Linsk y scripts {% endcomment %}
+
+
+
+
+{% block aplicacion %}
+
+
+
+<div id="app">
+
+    <div class="logo">
+        <img src="{% static 'img/logo-red-social.png' %}" alt="">
+    </div>
+
+    <form action="" method="post">
+        {% csrf_token %}
+        <div class="titulo">
+            <h3>Registro de Usuarios</h3>
+        </div>
+
+        <div class="campo">
+            <label for="correo">Correo electrónico</label>
+            <input v-model="correoElectronico" type="email" name="correo" id="correo">
+        </div>
+
+        <div class="campo">
+            <label for="nombre-usuario">Nombre de usuario</label>
+            <input v-model="nombreUsuario" type="text" name="nombre-usuario">
+        </div>
+
+        <div class="campo">
+            <label for="contrasenia">Contraseña</label>
+            <input v-model="contrasenia" type="password" name="contrasenia" id="">
+        </div>
+
+        <div class="campo">
+            <label for="repetir-contrasenia">Repetir contraseña</label>
+            <input v-model="repetirContrasenia" type="password" name="repetir-contrasenia" id="">
+        </div>
+
+        <div class="campo">
+            <button @click="verificarDatosRegistro">registrarse</button>
+        </div>
+
+        <div class="campo">
+            <a href="{% url 'inicio_sesion' %}">iniciar sesión</a>
+            <a href="#">¿se te olvido la contraseña?</a>
+        </div>
+
+    </form>
+
+
+
+
+
+</div>
+
+
+<script src="{% static 'js/registro.js' %}"></script>
+
+{% endblock aplicacion %}
+
+
+
+

@@ -1,0 +1,288 @@
+#app{
+    width: 100%;
+    height: 92%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#contenedor-main{
+    width: 80%;
+    height: 100%;
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    /* border: 1px solid #91CC12; */
+}
+
+.navegacion-lateral{
+    width: 20%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    /* padding: 20px 20px 0px 20px; */
+    align-items: center;
+    justify-content: center;
+}
+
+.navegacion-lateral aside{
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+    height: 45%;
+
+}
+
+aside a {
+    color: rgb(74, 74, 74);
+    text-decoration: none;
+    width: 90%;
+    height: 10%;
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+aside a img{
+    height: 80%;
+    margin-right: 5px;
+}
+
+
+
+
+
+
+.contenedor-central{
+    width: 60%;
+    height: 100%;
+    /* margin: 20px; */
+    /* border-left: 2px solid #91cc121f; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* box-shadow: #91cc1258 0px 1px 4px; */
+    box-shadow: #ea442e48 0px 1px 4px;
+    border-radius: 5px;
+}
+
+.contenedor-central section{
+    /* margin: 10px; */
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: ; */
+}
+
+.titulo{
+    width: 90%;
+    color: rgb(74, 74, 74);
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.contenedor-posts{
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contenedor-posts .post{
+    width: 600px;
+    height: 550px;
+    /* max-height: 200px; */
+    margin-top: 20px;
+    margin-bottom: 40px;
+    /* border: 1px solid #ea442e48; */
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    border-radius: 7px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-top: 2px solid #91cc124a;
+    border-bottom: 2px solid #91cc124a;
+    border-right: 2px solid #ea442e48;
+    border-left: 2px solid #ea442e48;
+    /* overflow: hidden; */
+}
+
+.contenedor-posts .post .imagen{
+    height: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contenedor-posts .post .imagen img{
+    /* height: 100%; */
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* background-size: cover; */
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+    /* border-bottom-left-radius: 7px; */
+    /* image-rendering: optimizeQuality; */
+}
+
+.contenedor-posts .post .informacion{
+    width: 95%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    padding: 7px;
+}
+
+.contenedor-posts .post .informacion .titulo{
+    /* margin: 5px; */
+    width: 95%;
+    margin: 0;
+    /* margin-left: 10px;
+    margin-right: 10px; */
+}
+
+.contenedor-posts .post .informacion .descripcion{
+    font-size: 13px;
+    /* margin: 5px; */
+    /* margin-left: 10px; */
+    /* margin-right: 10px; */
+    height: 50px;
+    width: 95%;
+    overflow: hidden;
+}
+
+.contenedor-posts .post .informacion .descripcion p{
+    white-space: nowrap; /* Evita que el texto se envuelva */
+    overflow: hidden; /* Oculta el contenido que se desborda */
+    text-overflow: ellipsis; /* Muestra puntos suspensivos (...) cuando el texto se desborda */
+    /* height: 100%; */
+    /* width: 90%; */
+    mask-image: linear-gradient(
+        to bottom,
+        white 5%,
+        transparent 95%
+    );
+}
+
+.contenedor-posts .post .informacion .info2{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    width: 95%;
+}
+
+.contenedor-posts .post .informacion .info2 span{
+    color: #747474;
+}
+
+
+/* .contenedor-posts .post .informacion .descripcion p */
+
+.contenedor-posts .post .informacion .etiquetas{
+    /* margin-top: 5px;
+    margin-bottom: 5px; */
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 95%;
+}
+
+.contenedor-posts .post .informacion .etiquetas span{
+    padding: 3px;
+    background-color: #91CC12;
+    border-radius: 7px;
+    color: white;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+
+.contenedor-posts .post .opciones{
+    width: 95%;
+    height: 15%;
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.contenedor-posts .post .opciones img{
+    height: 70%;
+    margin-right: 15px;
+}
+
+.contenedor-posts .post .opciones a,
+.contenedor-posts .post .opciones .eliminar-post{
+    text-decoration: none;
+    margin-right: 10px;
+    color: #1B75D0;
+}
+
+.contenedor-posts .post .opciones .eliminar-post{
+    color: #EC4444;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+.contenedor-lateral-derecho{
+    width: 20%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.contenedor-lateral-derecho .usuarios-conectados,
+.contenedor-lateral-derecho .usuarios-desconectados{
+    width: 90%;
+    height: 45%;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.contenedor-lateral-derecho .usuarios-conectados a{
+    text-decoration: none;
+    color: rgb(74, 74, 74);
+    text-decoration: none;
+    width: 80%;
+    height: 8%;
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    margin-bottom: 10px;
+}
+
+.contenedor-lateral-derecho .usuarios-conectados a img{
+    height: 100%;
+    margin-right: 5px;
+}
+
+.contenedor-lateral-derecho .usuarios-conectados a .conectado{
+    height: 70%;
+}

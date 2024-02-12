@@ -1,0 +1,395 @@
+.seccion-perfil{
+    width: 100%;
+    height: 92%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.imagen-portada{
+    width: 100%;
+    height: 30%;
+    /* border: 1px solid #333; */
+}
+
+.imagen-portada img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.contenedor-informacion-usuario{
+    width: 100%;
+        height: 70%;
+        display: inline-flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+}
+
+
+.informacion-lateral-izquierdo{
+    width: 35%;
+    height: 100%;
+    /* border: 1px solid #3333334d; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #777777;
+}
+
+.informacion-lateral-derecho{
+    width: 65%;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* border: 1px solid #3333334d; */
+    border-radius: 7px;
+    /* box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px; */
+    /* box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px; */
+    box-shadow: rgba(0, 0, 0, 0.04) 0px 3px 5px;
+    color: #777777;
+}
+
+
+.informacion-lateral-izquierdo .imagen-perfil{
+    width: 40%;
+    height:23%;
+    /* border: 1px solid #3333334d; */
+    border-radius: 50%;
+    /* top: 50%; */
+    /* position: relative; */
+    /* left: 50%; */
+    /* bottom: 20%; */
+    /* transform: translate(-50%, -50%); */
+}
+
+.informacion-lateral-izquierdo .imagen-perfil img{
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    object-position: center;
+    /* object-position: top; */
+    border-radius: 50%;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 5px solid white;
+}
+
+
+.informacion-lateral-izquierdo .nombre-usuario{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+    color: #777777;
+    /* margin-top: 10px; */
+}
+
+.informacion-lateral-izquierdo .numeros{
+    width: 80%;
+    /* height: 15%; */
+    display: inline-flex; 
+    flex-direction: row;
+    /* align-items: center; */
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.informacion-lateral-izquierdo .numeros div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.informacion-lateral-izquierdo .biografia{
+    width: 80%;
+    text-align: center;
+    margin-top: 20px;
+}
+
+
+.linea-horizontal{
+    width: 50%;
+    /* border-top: 1px solid #7777775d; */
+    border-top: 1px solid #77777730;
+    margin-top: 20px;
+    /* margin-bottom: 10px; */
+}
+
+.informacion-lateral-izquierdo .redes-sociales{
+    width: 60%;
+    height: 10%;
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-top: 20px;
+}
+
+.informacion-lateral-izquierdo .redes-sociales img{
+    height: 50%;
+}
+
+
+.informacion-lateral-derecho .panel-opciones{
+    width: 90%;
+    height: 15%;
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.informacion-lateral-derecho .panel-opciones a{
+    margin-right: 20px;
+    text-decoration: none;
+    color: #777777;
+    /* font-weight: bold; */
+}
+
+
+#pestania-informacion-personal, 
+#pestania-publicaciones{
+    width: 90%;
+    height: 80%;
+    /* border: 1px solid #777777; */
+}
+
+#pestania-informacion-personal .info{
+    width: 100%;
+    height: auto;
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#pestania-informacion-personal .info div{
+    width: 30%;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+#pestania-informacion-personal div span{
+    font-size: 13px;
+}
+
+#pestania-informacion-personal div img{
+    height: 25px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+#pestania-informacion-personal div img:active{
+    transform: scale(0.90);
+}
+
+.admin{
+    color: goldenrod;
+}
+
+#pestania-informacion-personal .info .opciones{
+    display: inline-flex;
+    flex-direction: row;
+}
+
+.info-imagenes{
+    align-items: center;
+}
+
+.info-imagenes input[type='file']{
+    /* border-radius: 7px; */
+    width: 90%;
+}
+
+/* .btn-file{
+        border: 1px solid #ccc;
+            display: inline-block;
+            padding: 6px 12px;
+            cursor: pointer;
+} */
+
+
+
+
+
+
+
+
+
+/* Pestaña publicaciones */
+
+#pestania-publicaciones .contenedor-publicaciones{
+    width: 100%;
+    height: 70%;
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+
+
+}
+
+
+#pestania-publicaciones div{
+    margin-bottom: 10px;
+}
+
+
+#pestania-publicaciones .contenedor-publicaciones .post-miniatura{
+    width: 25%;
+    height: 30%;
+    border: 1px solid #33333321;
+    margin-right: 20px;
+    /* margin-left: 10px; */
+    box-shadow: rgba(0, 0, 0, 0.082) 0px 1px 4px;
+    border-radius: 7px;
+    padding: 7px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+/* From https://css.glass */
+    background: rgba(125, 191, 35, 0.12);
+    /* border-radius: 16px; */
+    /* box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); */
+    backdrop-filter: blur(5.9px);
+    -webkit-backdrop-filter: blur(5.9px);
+white-space: nowrap;
+    /* Evita que el texto se divida en varias líneas */
+    overflow: hidden;
+    /* Oculta el contenido que excede el ancho del contenedor */
+    text-overflow: ellipsis;
+}
+
+#pestania-publicaciones .contenedor-publicaciones .post-miniatura p{
+    text-align: center;
+    width: 90%;
+    white-space: nowrap;
+    /* Evita que el texto se divida en varias líneas */
+    overflow: hidden;
+    /* Oculta el contenido que excede el ancho del contenedor */
+    text-overflow: ellipsis;
+}
+
+#pestania-publicaciones .contenedor-publicaciones .post-miniatura a,
+#pestania-publicaciones .mas-posts a{
+    text-decoration: none;
+    color: #1B75D0;
+}
+
+
+/* #pestania-publicaciones */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.seleccionable{
+    /* text-decoration: underline !important; */
+    /* Puedes aplicar cualquier estilo deseado para indicar que está seleccionado */
+    /* font-weight: bold; */
+    /* Por ejemplo, hacerlo negrita */
+    cursor: pointer;
+}
+
+.seleccionado{
+    text-decoration: underline !important;
+    /* Puedes aplicar cualquier estilo deseado para indicar que está seleccionado */
+    cursor: pointer;
+    font-weight: bold;
+    
+    /* Por ejemplo, hacerlo negrita */
+}
+
+
+@keyframes wipe-in-down {
+    from {
+        clip-path: inset(0 0 100% 0);
+    }
+
+    to {
+        clip-path: inset(0 0 0 0);
+    }
+}
+
+
+
+.pestaniaSeleccionada{
+    display: block;
+    animation: wipe-in-down 1.5s cubic-bezier(.25, 1, .30, 1) both;
+
+}
+
+.pestaniaDeseleccionada{
+    display: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* custom tailwind */
+  .custom-bg-blur {
+      background-color: #374151;
+      /* Color de fondo */
+      backdrop-filter: blur(10px);
+      /* Aplica un desenfoque de 10px al fondo */
+  }

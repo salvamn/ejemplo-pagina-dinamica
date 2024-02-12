@@ -1,0 +1,411 @@
+{% extends 'baseAutenticacion.dj' %}
+{% load static %}
+
+{% block titulo %}
+Perfil
+{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/perfil.css' %}" />
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+{% endblock %}
+
+{% block aplicacion %}
+<nav>
+  <div class="navegacion">
+    <div class="logo">
+      <img src="{% static 'img/logo-red-social-solo.png' %}" />
+    </div>
+    <div class="buscador">
+      <input type="search" name="" placeholder="buscar un post" id="" />
+    </div>
+    <div class="opciones">
+      <a href="{% url 'inicio' %}">inicio</a>
+      <a href="{% url 'perfil' %}">perfil</a>
+      <a href="{% url 'cerrar_sesion' %}">cerrar sesión</a>
+    </div>
+  </div>
+</nav>
+
+<div id="app" class="seccion-perfil">
+  {% comment %}Imagen de portada{% endcomment %}
+
+  <div class="imagen-portada">
+    <img src="{% static 'img/imagen-portada.jpg' %}" alt="" />
+  </div>
+
+  {% comment %}Imagen de portada{% endcomment %}
+
+
+  <div class="contenedor-informacion-usuario">
+    <div class="informacion-lateral-izquierdo">
+      <div class="imagen-perfil">
+        {% comment %} <img src="{% static 'img/imagen-perfil.jpg' %}" alt="" /> {% endcomment %}
+        <img src="{% static 'img/foto-perfil.jpg' %}" alt="" />
+      </div>
+
+      <div class="nombre-usuario">
+        <h2 class="text-2xl font-black">{{ request.user.username }}</h2>
+        <span>{{ request.user.nombre_completo }}</span>
+        <span>{{ request.user.correo_institucional }}</span>
+      </div>
+
+      <div class="numeros">
+        <div>
+          <span>Seguidores</span>
+          <span>0</span>
+        </div>
+        <div>
+          <span>Siguiendo</span>
+          <span>0</span>
+        </div>
+        <div>
+          <span>N° Posts</span>
+          <span>{{ cantidad_posts }}</span>
+        </div>
+      </div>
+
+      <div class="linea-horizontal"></div>
+
+      <div class="biografia">
+        {% if request.user.biografia %}
+        <p>{{ request.user.biografia }}</p>
+        {% else %}
+        <p>sin información</p>
+        {% endif %}
+      </div>
+
+      <div class="linea-horizontal"></div>
+
+      <div class="redes-sociales">
+        <img src="{% static 'img/facebook.png' %}" alt="" />
+        <img src="{% static 'img/instagram.png' %}" alt="" />
+        <img src="{% static 'img/twitter.png' %}" alt="" />
+        <img src="{% static 'img/youtube.png' %}" alt="" />
+      </div>
+    </div>
+
+    <div class="informacion-lateral-derecho">
+      <div class="panel-opciones">
+        <a @click="linksSelecionables" id="link-informacion-personal" class="seleccionable seleccionado">INFORMACIÓN
+          PERSONAL</a>
+        <a @click="linksSelecionables" id="link-publicaciones" href="#" class="seleccionable">PUBLICACIONES</a>
+        <!-- <a @click="linksSelecionables" href="#" class="seleccionable">NIVELES</a> -->
+        <!-- <a @click="linksSelecionables" href="#" class="seleccionable">AMIGOS</a> -->
+        {% comment %} <a href="#"></a> {% endcomment %}
+      </div>
+
+      <div id="pestania-informacion-personal">
+        <div class="info">
+          <div>
+            <h5 class="font-bold">Nombre Completo</h5>
+            {% if request.user.nombre_completo %}
+            <span>{{ request.user.nombre_completo }}</span>
+            {% else %}
+            <span>sin información</span>
+            {% endif %}
+          </div>
+          <div>
+            <h5 class="font-bold">Carrera</h5>
+            {% if request.user.carrera %}
+            <span>{{ request.user.carrera }}</span>
+
+            {% else %}
+            <span>sin información</span>
+            {% endif %}
+          </div>
+          <div>
+            <h5 class="font-bold">Institución</h5>
+            {% if request.user.institucion %}
+            <span>{{ request.user.institucion }}</span>
+
+            {% else %}
+            <span>sin información</span>
+            {% endif %}
+          </div>
+        </div>
+        <div class="info">
+          <div>
+            <h5 class="font-bold">Edad</h5>
+            {% if request.user.edad %}
+            <span>{{ request.user.edad }}</span>
+
+            {% else %}
+            <span>sin información</span>
+            {% endif %}
+          </div>
+          <div>
+            <h5 class="font-bold">Semestre Actual</h5>
+            {% if request.user.semestre_cursado %}
+            <span>{{ request.user.semestre_cursado }}</span>
+
+            {% else %}
+            <span>sin información</span>
+            {% endif %}
+          </div>
+          <div>
+            <h5 class="font-bold">Correo Institucional</h5>
+            {% if request.user.correo_institucional %}
+            <span>{{ request.user.correo_institucional }}</span>
+
+            {% else %}
+            <span>sin información</span>
+            {% endif %}
+          </div>
+        </div>
+        <div class="info">
+          <div>
+            <h5 class="font-bold">Asignatura Favorita</h5>
+            {% if request.user.asignatura_favorita %}
+            <span>{{ request.user.asignatura_favorita }}</span>
+
+            {% else %}
+            <span>sin información</span>
+            {% endif %}
+          </div>
+          <div>
+            <h5 class="font-bold">Nombre de Usuario</h5>
+            <span>{{ request.user.username }}</span>
+          </div>
+          <div>
+            <h5 class="font-bold">Tipo de Usuario</h5>
+            <span class="admin">Administrador</span>
+          </div>
+        </div>
+        <div class="info">
+          <div>
+            <h5 class="font-bold">Estado del Estudiante</h5>
+            {% if request.user.estado_estudiante %}
+            <span>{{ request.user.estado_estudiante }}</span>
+
+            {% else %}
+            <span>sin información</span>
+            {% endif %}
+          </div>
+          <div>
+            <h5 class="font-bold">Sexo</h5>
+            {% if request.user.sexo %}
+            <span>{{ request.user.sexo }}</span>
+
+            {% else %}
+            <span>sin información</span>
+            {% endif %}
+          </div>
+          <div>
+            <h5 class="font-bold">Orientación Sexual</h5>
+            {% if request.user.orientacion_sexual %}
+            <span>{{ request.user.orientacion_sexual }}</span>
+
+            {% else %}
+            <span>sin información</span>
+            {% endif %}
+          </div>
+        </div>
+
+        <div class="info info-imagenes">
+          <div class="opciones">
+            <img @click="modalDatosPersonales(true)" src="{% static 'img/editar-perfil.png' %}" alt="" />
+            <img src="{% static 'img/mensaje.png' %}" alt="" />
+          </div>
+          <div>
+            <h5 class="font-bold">Imagen de Perfil</h5>
+            <input type="file" name="" id="">
+          </div>
+          <div>
+            <h5 class="font-bold">Imagen de Portada</h5>
+            <input type="file">
+          </div>
+        </div>
+      </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      <div id="pestania-publicaciones" class="pestaniaDeseleccionada">
+        <div>
+          <h4>Últimos 9 Posts</h4>
+        </div>
+        <div class="contenedor-publicaciones">
+
+
+          {% for post in posts %}
+          <div class="post-miniatura">
+            <p>{{ post.titulo }}</p>
+            <a href="{% url 'vista_previa_post' post.id %}">ir</a>
+          </div>
+          {% endfor %}
+
+
+        </div>
+
+        <div class="mas-posts">
+          <a href="#">todos los post</a>
+        </div>
+
+
+      </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+
+
+  {% comment %}MODAL{% endcomment %}
+
+  <div
+    class="py-12 pb-20 bg-[#37415147] custom-bg-blur overflow-auto transition duration-150 ease-in-out z-10 absolute top-0 right-0 bottom-0 left-0"
+    id="modalDatosPersonales">
+    <div role="alert" class="container mx-auto w-11/12 md:w-2/3 max-w-lg">
+      <div class="relative py-8 px-5 md:px-10 bg-white shadow-md rounded border border-gray-400">
+        <form method="post" class="pb-10">
+          {% csrf_token %}
+          <h1 class="text-gray-900 text-xl font-bold tracking-normal leading-tight mb-4">Tus datos</h1>
+          <div class="flex flex-col mb-2">
+            <label for="nombre-completo">Nombre Completo</label>
+            <input type="text" v-model="formNombreCompleto" class="rounded border-1 border-slate-300"
+              placeholder="Juan Ignacio Martinez Quezada" />
+          </div>
+          <div class="flex flex-col mb-2">
+            <label for="carrera">Carrera</label>
+            <select name="carrera" v-model="formCarrera" class="rounded border-1 border-slate-300" id="">
+              <option disabled selected value="">Selecciona una opción</option>
+              <option value="iei">Ingeniería en Ejecucion Informatica</option>
+              <option value="ap">Analista Programador</option>
+              <option value="dv">Desarrollador de Videojuegos</option>
+            </select>
+          </div>
+          <div class="flex flex-col mb-2">
+            <label for="institucion">Institución</label>
+            <select name="institucion" v-model="formInstitucion" class="rounded border-1 border-slate-300" id="">
+              <option disabled selected value="">Selecciona una opción</option>
+              <option value="st-concepcion">Santo Tomás Sede Concepción</option>
+            </select>
+          </div>
+          <div class="flex flex-col mb-2">
+            <label for="edad">Edad</label>
+            <input type="number" v-model="formEdad" name="edad" class="rounded border-1 border-slate-300" id="" min="17"
+              max="90" placeholder="17" />
+          </div>
+          <div class="flex flex-col mb-2">
+            <label for="edad">Semestre Actual</label>
+            <input type="number" v-model="formSemestreActual" name="edad" class="rounded border-1 border-slate-300"
+              id="" min="1" max="8" placeholder="1" />
+          </div>
+          <div class="flex flex-col mb-2">
+            <label for="correo-institucional">Correo Institucional</label>
+            <input type="email" v-model="formCorreoInstitucional" name="correo-institucional"
+              class="rounded border-1 border-slate-300" id="" placeholder="stomas@alumnos.santotomas.cl" />
+          </div>
+          <div class="flex flex-col mb-2">
+            <label for="asignatura-favorita">Asignatura Favorita</label>
+            <input type="text" v-model="formAsignaturaFavorita" name="asignatura-favorita"
+              class="rounded border-1 border-slate-300" id="" placeholder="POO" />
+          </div>
+          <div class="flex flex-col mb-2">
+            <label for="estado-estudiante">Estado del Estudiante</label>
+            <input type="text" v-model="formEstadoEstudiante" name="estado-estudiante"
+              class="rounded border-1 border-slate-300" id="" placeholder="soltero" />
+          </div>
+          <div class="flex flex-col mb-2">
+            <label for="sexo">Sexo</label>
+            <select name="sexo" v-model="formSexo" class="rounded border-1 border-slate-300" id="">
+              <option disabled selected value="">Selecciona una opción</option>
+              <option value="m">Masculino</option>
+              <option value="f">Femenino</option>
+            </select>
+          </div>
+          <div class="flex flex-col mb-2">
+            <label for="orientacion-sexual">Orientación Sexual</label>
+            <select name="orientacion-sexual" v-model="formOrientacionSexual" class="rounded border-1 border-slate-300"
+              id="">
+              <option disabled selected value="">Selecciona una opción</option>
+              <option value="heterosexual">Heterosexual</option>
+              <option value="homosexual">Homosexual</option>
+              <option value="lesbiana">Lesbiana</option>
+              <option value="otro">otro</option>
+            </select>
+          </div>
+          <div class="flex flex-col mb-2">
+            <label for="biografia">Descríbete (max 150 caracteres)</label>
+            <textarea v-model="formBiografia" name="biografia" class="rounded border-1 border-slate-300"
+              maxlength="150"></textarea>
+          </div>
+          <div class="flex flex-row mt-8">
+            <button @click="cambiarDatosPersonales"
+              class="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 transition duration-150 ease-in-out hover:bg-indigo-600 bg-[#1B75D0] rounded text-white px-8 py-2 text-sm">Enviar
+              Datos</button>
+            {% comment %} <button
+              class="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-400 ml-3 bg-gray-100 transition duration-150 text-gray-600 ease-in-out hover:border-gray-400 hover:bg-gray-300 border rounded px-8 py-2 text-sm">Cancelar</button>
+            {% endcomment %}
+          </div>
+        </form>
+
+        <button
+          class="cursor-pointer absolute top-0 right-0 mt-4 mr-5 text-gray-400 hover:text-gray-600 transition duration-150 ease-in-out rounded focus:ring-2 focus:outline-none focus:ring-gray-600"
+          @click="modalDatosPersonales(false)" aria-label="close modal" role="button">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-x" width="20" height="20"
+            viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" fill="none" stroke-linecap="round"
+            stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" />
+            <line x1="18" y1="6" x2="6" y2="18" />
+            <line x1="6" y1="6" x2="18" y2="18" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  {% comment %}MODAL{% endcomment %}
+</div>
+
+
+
+
+
+<script src="{% static 'js/perfil/perfil.js' %}"></script>
+{% endblock %}
